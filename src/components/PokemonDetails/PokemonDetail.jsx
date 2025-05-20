@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from 'react'
+
+import usePokemon from '../../hooks/usePokemon'
 import '../PokemonDetails/PokemonDetail.css'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios';
+
 
 function PokemonDetail() {
-   const pokemon_detail_url="https://pokeapi.co/api/v2/pokemon/";
+  
   const {id}=useParams()  // I use id here because in route  also use pokemon/:id .
- const [pokemon,setPokemon]=useState(null)
-  async function downloadPokemon(){
-     const response=await axios.get(pokemon_detail_url + id);
-     const pokemon=response.data;
-     setPokemon({
-         name:pokemon.name,
-         height:pokemon.height,
-         weight:pokemon.weight,
-         types:pokemon.types,
-         image:pokemon.sprites.other.dream_world.front_default
-     })
-  }
-  useEffect(()=>{
-    downloadPokemon()
-  },[])
+  
+  const [pokemon]=usePokemon(id)
   return (
     <>
     <Link to='/' className='home-page'>Pokedex</Link>
