@@ -3,14 +3,12 @@ import usePokemon from '../../hooks/usePokemon'
 import Pokemon from '../Pokemon/Pokemon'
 // Custom hook
 import '../PokemonDetails/PokemonDetail.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-function PokemonDetail() {
+function PokemonDetail({pokemonName}) {
   
-  const {id}=useParams()  // I use id here because in route  also use pokemon/:id .
-  
-  const [pokemon,pokemonState]=usePokemon(id)
+  const [pokemon,pokemonState]=usePokemon(pokemonName)
   return (
     <>
     <Link to='/' className='home-page'>Pokedex</Link>

@@ -14,7 +14,12 @@
 }
 .pokemon-image img{
   width:400px ;
-  height :300px
+  height :300px;
+}
+.pokemon-image{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 .pokemon-attributes{
    display: flex;
